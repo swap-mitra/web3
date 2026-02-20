@@ -5,6 +5,7 @@ import {
   WalletProvider,
 } from "@solana/wallet-adapter-react";
 import {
+  WalletDisconnectButton,
   WalletModalProvider,
   WalletMultiButton,
 } from "@solana/wallet-adapter-react-ui";
@@ -15,8 +16,17 @@ function App() {
     <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
-          <WalletMultiButton />
-          {/* <WalletDisconnectButton /> */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <WalletMultiButton />
+            <br />
+            <WalletDisconnectButton />
+          </div>
           <TokenLaunchpad></TokenLaunchpad>
         </WalletModalProvider>
       </WalletProvider>

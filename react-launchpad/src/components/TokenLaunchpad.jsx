@@ -44,13 +44,14 @@ export function TokenLaunchpad() {
 
     transaction.partialSign(mintKeypair);
     const response = await wallet.sendTransaction(transaction, connection);
-    console.log(response);
+    console.log("Transaction signature:", response);
+    console.log("Token address:", mintKeypair.publicKey.toBase58());
   }
 
   return (
     <div
       style={{
-        height: "100vh",
+        height: "75vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
